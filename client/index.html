@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎨 Real-Time Collaborative Canvas</title>
+
+  <!-- External CSS file for styling -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- === TOOLBAR SECTION === -->
+  <!-- Floating vertical toolbar that allows users to select tools, colors, and actions -->
+  <div id="toolbar">
+    <!-- Color picker for brush color -->
+    <input type="color" id="colorPicker" value="#1e3a8a" title="Brush Color" />
+
+    <!-- Brush size selector -->
+    <label>Size:</label>
+    <input type="range" id="sizeSlider" min="1" max="20" value="5" />
+
+    <!-- Drawing tools -->
+    <button id="brushBtn" class="active">🖊️ Brush</button>
+    <button id="eraserBtn">🧽 Eraser</button>
+
+    <!-- Dropdown for geometric shapes -->
+    <div class="dropdown">
+      <button id="shapeBtn">⬛ Shapes ▾</button>
+      <div class="dropdown-content">
+        <button id="lineBtn">📏 Line</button>
+        <button id="rectBtn">⬛ Rectangle</button>
+        <button id="circleBtn">⚪ Circle</button>
+      </div>
+    </div>
+
+    <!-- Text tool for adding text on canvas -->
+    <button id="textBtn">🅰️ Text</button>
+
+    <!-- Undo / Redo / Clear canvas actions -->
+    <button id="undoBtn">↩️ Undo</button>
+    <button id="redoBtn">↪️ Redo</button>
+    <button id="clearBtn">🧹 Clear All</button>
+
+    <!-- Display number of users currently online -->
+    <span id="userCount">👥 0 users online</span>
+  </div>
+
+  <!-- === CANVAS AREA === -->
+  <!-- The actual drawing board -->
+  <canvas id="board"></canvas>
+
+  <!-- === SCRIPT IMPORTS === -->
+  <!-- Socket.io client for real-time communication -->
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+  <!-- Main JavaScript module that initializes tools and event handlers -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
